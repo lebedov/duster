@@ -11,7 +11,11 @@ import IPython
 modules = [('numpy', 'np'),
            ('scipy', 'sp')]
 
-ip = IPython.core.ipapi.get()
+if IPython.release.version < '1.0.0':
+    ip = IPython.core.ipapi.get()
+else:
+    ip = IPython.core.getipython.get_ipython()
+
 def duster(self, arg=''):
     ip.magic('reset')
     for m in modules:
