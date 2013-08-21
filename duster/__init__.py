@@ -6,15 +6,18 @@ IPython extension to reset namespace and reload several modules automatically
 import importlib
 import IPython
 
-# Modules to reload; each element contains the module and the name to which
-# it should be imported (or '' if it should be imported as-is):
-modules = [('numpy', 'np'),
-           ('scipy', 'sp')]
-
 if IPython.release.version < '1.0.0':
     ip = IPython.core.ipapi.get()
 else:
     ip = IPython.core.getipython.get_ipython()
+
+# Modules to be reloaded; each element contains the module and the name to which
+# it should be imported (or '' if it should be imported as-is):
+cfg = ip.config
+try:
+    modules = cfg.Duster.modules
+except AttributeError:
+    modules = []
 
 def duster(self, arg=''):
     ip.magic('reset')
@@ -26,7 +29,6 @@ def duster(self, arg=''):
 
     # If IPython was started in pylab mode, reload symbols in pylab module directly
     # into namespace:
-    cfg = ip.config
     if (cfg.has_key('IPKernelApp') and cfg['IPKernelApp'].has_key('pylab')) or \
        (cfg.has_key('TerminalIPythonApp') and cfg['TerminalIPythonApp'].has_key('pylab')):
         ip.ns_table['user_global']['pylab'] = importlib.import_module('pylab')
@@ -36,15 +38,18 @@ def duster(self, arg=''):
 
 duster.__doc__ = \
 """
-Reset namespace and (re)load several modules automatically. 
+Reset namespace and (re)load several modules automatically.
 Modules currently reloaded:
- 
+
 """
-for m in modules:
-    if len(m) == 1:
-        duster.__doc__ += "%s as %s\n" % (m[0], m[0])
-    else:
-        duster.__doc__ += "%s as %s\n" % (m[0], m[1])
+if modules:
+    for m in modules:
+        if len(m) == 1:
+            duster.__doc__ += "%s as %s\n" % (m[0], m[0])
+        else:
+            duster.__doc__ += "%s as %s\n" % (m[0], m[1])
+else:
+    duster.__doc__ += "None"
 
 def load_ipython_extension(ip):
      ip.define_magic('duster', duster)

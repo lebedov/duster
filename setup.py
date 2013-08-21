@@ -17,7 +17,7 @@ VERSION =            '0.01'
 AUTHOR =             'Lev Givon'
 AUTHOR_EMAIL =       'lev@columbia.edu'
 URL =                'http://github.com/lebedov/duster/'
-DESCRIPTION =        'Reset IPython namespace'
+DESCRIPTION =        'Reset IPython namespace and reload specified packages'
 LONG_DESCRIPTION =   DESCRIPTION
 DOWNLOAD_URL =       URL
 LICENSE =            'BSD'
@@ -45,8 +45,7 @@ if __name__ == "__main__":
         description = DESCRIPTION,
         long_description = LONG_DESCRIPTION,
         url = URL,
-        packages = find_packages()
-
+        packages = find_packages(),
         install_requires = ['ipython>=0.13'],
         extras_require = dict(
             numpy = ['numpy']
