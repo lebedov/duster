@@ -13,10 +13,10 @@ from setuptools import find_packages
 from setuptools import setup
 
 NAME =               'duster'
-VERSION =            '0.01'
+VERSION =            '0.02'
 AUTHOR =             'Lev Givon'
 AUTHOR_EMAIL =       'lev@columbia.edu'
-URL =                'http://github.com/lebedov/duster/'
+URL =                'https://github.com/lebedov/duster/'
 DESCRIPTION =        'Reset IPython namespace and reload specified packages'
 LONG_DESCRIPTION =   DESCRIPTION
 DOWNLOAD_URL =       URL
