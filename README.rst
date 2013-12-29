@@ -34,7 +34,7 @@ The latest release of the package may be obtained from
 
 Author
 ------
-This software was written and packaged by Lev Givon.
+See the included AUTHORS file for more information.
 
 License
 -------
