@@ -6,14 +6,14 @@ import os
 try:
     import setuptools
 except ImportError:
-    from distribute_setup import use_setuptools
+    from ez_setup import use_setuptools
     use_setuptools()
 
 from setuptools import find_packages
 from setuptools import setup
 
 NAME =               'duster'
-VERSION =            '0.02'
+VERSION =            '0.2.0'
 AUTHOR =             'Lev Givon'
 AUTHOR_EMAIL =       'lev@columbia.edu'
 URL =                'https://github.com/lebedov/duster/'
