@@ -65,4 +65,5 @@ if modules:
 else:
     DusterMagic.duster.__func__.__doc__ += "None"
 
-ip.register_magics(DusterMagic)
+def load_ipython_extension(ip):
+    ip.register_magics(DusterMagic)
