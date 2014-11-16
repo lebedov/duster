@@ -8,6 +8,13 @@ Package Description
 Duster is an IPython extension that clears one's IPython session namespace and 
 automatically reloads specified packages.
 
+.. image:: https://pypip.in/version/duster/badge.png
+    :target: https://pypi.python.org/pypi/duster
+    :alt: Latest Version
+.. image:: https://pypip.in/d/duster/badge.png
+    :target: https://pypi.python.org/pypi/duster
+    :alt: Downloads
+
 Installation
 ------------
 The package may be installed as follows: ::
