@@ -42,7 +42,7 @@ Duster will automatically reload pylab [1]_ if IPython was started in pylab mode
 Development
 -----------
 The latest release of the package may be obtained from
-`Github <https://github.com/lebedov/duster>`_.
+`GitHub <https://github.com/lebedov/duster>`_.
 
 Author
 ------
@@ -51,7 +51,7 @@ See the included AUTHORS.rst file for more information.
 License
 -------
 This software is licensed under the
-`BSD License <http://www.opensource.org/licenses/bsd-license.php>`_.
+`BSD License <http://www.opensource.org/licenses/bsd-license>`_.
 See the included LICENSE.rst file for more information.
 
 .. [1] http://matplotlib.org/users/shell.html

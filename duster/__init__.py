@@ -1,7 +1,13 @@
 #!/usr/bin/env python 
+
 """
 IPython extension to reset namespace and reload several modules automatically
 """
+
+# Copyright (c) 2013-2014, Lev Givon
+# All rights reserved.
+# Distributed under the terms of the BSD license:
+# http://www.opensource.org/licenses/bsd-license
 
 import importlib
 import IPython
