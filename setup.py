@@ -24,6 +24,7 @@ LICENSE =            'BSD'
 CLASSIFIERS = [
     'Development Status :: 3 - Alpha',
     'Environment :: Console',
+    'Framework :: IPython',
     'Intended Audience :: Developers',
     'License :: OSI Approved :: BSD License',
     'Operating System :: OS Independent',
@@ -32,7 +33,7 @@ CLASSIFIERS = [
 PACKAGES =           find_packages()
 
 if __name__ == "__main__":
-    if os.path.exists('MANIFEST'): 
+    if os.path.exists('MANIFEST'):
         os.remove('MANIFEST')
 
     setup(
