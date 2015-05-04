@@ -37,7 +37,8 @@ it should be imported as-is). For example: ::
 
 Notes
 -----
-Duster will automatically reload pylab [1]_ if IPython was started in pylab mode.
+Duster will automatically reload `pylab 
+<http://matplotlib.org/users/shell.html>`_ if pylab mode is active.
 
 Development
 -----------
@@ -53,5 +54,3 @@ License
 This software is licensed under the
 `BSD License <http://www.opensource.org/licenses/bsd-license>`_.
 See the included LICENSE.rst file for more information.
-
-.. [1] http://matplotlib.org/users/shell.html
