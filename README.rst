@@ -47,10 +47,14 @@ The latest release of the package may be obtained from
 
 Author
 ------
-See the included AUTHORS.rst file for more information.
+See the included `AUTHORS.rst`_ file for more information.
+
+.. _AUTHORS.rst: AUTHORS.rst
 
 License
 -------
 This software is licensed under the
 `BSD License <http://www.opensource.org/licenses/bsd-license>`_.
-See the included LICENSE.rst file for more information.
+See the included `LICENSE.rst`_ file for more information.
+
+.. _LICENSE.rst: LICENSE.rst
