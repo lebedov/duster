@@ -13,7 +13,7 @@ from setuptools import find_packages
 from setuptools import setup
 
 NAME =               'duster'
-VERSION =            '0.2.1'
+VERSION =            '0.2.2'
 AUTHOR =             'Lev Givon'
 AUTHOR_EMAIL =       'lev@columbia.edu'
 URL =                'https://github.com/lebedov/duster/'
