@@ -21,7 +21,10 @@ else:
 
 # Modules to be reloaded; each element contains the module and the name to which
 # it should be imported (or '' if it should be imported as-is):
-cfg = ip.config
+if IPython.release.version < '4.0.0':
+    cfg = ip.config
+else:
+    import traitlets.config as cfg
 try:
     modules = cfg.Duster.modules
 except AttributeError:
