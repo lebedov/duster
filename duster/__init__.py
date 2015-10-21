@@ -24,7 +24,8 @@ else:
 if IPython.release.version < '4.0.0':
     cfg = ip.config
 else:
-    import traitlets.config as cfg
+    import traitlets.config
+    cfg = traitlets.config.get_config()
 try:
     modules = cfg.Duster.modules
 except AttributeError:
