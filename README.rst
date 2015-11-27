@@ -33,7 +33,11 @@ IPython's configuration file. Each module should be listed as a tuple
 containing the module name and the name to which it should be imported (or '' if
 it should be imported as-is). For example: ::
 
-    c.Duster.modules = [('numpy', 'np'), ('scipy', 'sp'), ('sys', '')]
+    c.DusterMagic.modules = [('numpy', 'np'), ('scipy', 'sp'), ('sys', '')]
+
+The modules can be viewed or modified within an IPython session using ::
+
+    %config DusterMagic
 
 Notes
 -----
