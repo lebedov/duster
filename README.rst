@@ -5,8 +5,9 @@ Duster
 
 Package Description
 -------------------
-Duster is an IPython extension that clears one's IPython session namespace and 
-automatically reloads specified packages.
+Duster is an IPython extension that selectively clears one's IPython session 
+namespace while automatically ignoring specified variables to preserve and 
+reloading specified packages.
 
 .. image:: https://img.shields.io/pypi/v/duster.svg
     :target: https://pypi.python.org/pypi/duster
@@ -28,14 +29,19 @@ session with ::
 
 Configuration
 -------------
-To specify modules that duster should reload when invoked, update 
-IPython's configuration file. Each module should be listed as a tuple
-containing the module name and the name to which it should be imported (or '' if
+Modules to be reloaded when duster is invoked should each be listed as a tuple 
+containing the module name and the name to which it should be imported (or '' if 
 it should be imported as-is). For example: ::
 
     c.DusterMagic.modules = [('numpy', 'np'), ('scipy', 'sp'), ('sys', '')]
 
-The modules can be viewed or modified within an IPython session using ::
+Variables to be ignored when resetting the IPython namespace should be listed
+by name as follows: ::
+
+    c.DusterMagic.ignore = ['varname0', 'varname1']
+
+The above settings may be viewed and/or modified within an IPython session using 
+::
 
     %config DusterMagic
 

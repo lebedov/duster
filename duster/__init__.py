@@ -1,10 +1,10 @@
 #!/usr/bin/env python 
 
 """
-IPython extension to reset namespace and reload several modules automatically
+Configurable IPython namespace reset.
 """
 
-# Copyright (c) 2013-2015, Lev Givon
+# Copyright (c) 2013-2016, Lev Givon
 # All rights reserved.
 # Distributed under the terms of the BSD license:
 # http://www.opensource.org/licenses/bsd-license
@@ -35,27 +35,63 @@ else:
 class DusterMagic(Magics):
     modules = List([], config=True,
                    help="List of (module, module import name) tuples to reload.")
-
+    ignore = List([], config=True,
+                  help="List of variables to ignore when resetting the namespace.")
+    
     @line_magic
     def duster(self, line=''):
         """
-        Reset namespace and (re)load modules automatically.
+        Configurable namespace reset.
     
-        To see which modules are reloaded, run 
+        Selectively reset IPython namespace while reloading specified modules and 
+        ignoring certain variables.
+        
+        To configure, run 
 
         %config DusterMagic
 
         Parameters
         ----------
         -f : force reset without asking for confirmation
+
+        Examples
+        --------
+        ::
+          In [1]: config DusterMagic.modules = [('numpy', 'np')]
+
+          In [2]: import numpy as np
+          
+          In [3]: duster -f
+         
+          In [4]: who_ls module
+          Out[4]: ['p']
+
+          In [5]: config DusterMagic.ignore = ['xyz']
+         
+          In [6]: xyz = 1; abc = 2
+    
+          In [7]: duster -f
+ 
+          In [8]: who_ls int
+          Out[8]: ['xyz']
         """
 
         opts, args = self.parse_options(line, 'f')
         ip = get_ipython()
-        if 'f' in opts:
-            ip.run_line_magic('reset', '-f')
+
+        ignore_list = [i for i in self.ignore if i]
+        if ignore_list:
+            ignore_regex = '^(?!%s)' % '|'.join(ignore_list)
+            if 'f' in opts:
+                ip.run_line_magic('reset_selective', '-f %s' % ignore_regex)
+            else:
+                ip.run_line_magic('reset_selective', ignore_regex)
         else:
-            ip.run_line_magic('reset', '')
+            if 'f' in opts:
+                ip.run_line_magic('reset', '-f')
+            else:
+                ip.run_line_magic('reset', '')
+            
         for m in self.modules:
             try:
                 if len(m) == 1:
