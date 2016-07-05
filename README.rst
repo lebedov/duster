@@ -12,7 +12,9 @@ reloading specified packages.
 .. image:: https://img.shields.io/pypi/v/duster.svg
     :target: https://pypi.python.org/pypi/duster
     :alt: Latest Version
-.. image:: https://img.shields.io/pypi/dm/duster.svg
+.. Uncomment after pypi is migrated to warehouse and stats are re-enabled:
+.. https://github.com/badges/shields/issues/716
+.. .. image:: https://img.shields.io/pypi/dm/duster.svg
     :target: https://pypi.python.org/pypi/duster
     :alt: Downloads
 
