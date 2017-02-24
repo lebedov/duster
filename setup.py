@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 
 import os
+import re
 
 # Install setuptools if it isn't available:
 try:
@@ -18,7 +19,9 @@ AUTHOR =             'Lev Givon'
 AUTHOR_EMAIL =       'lev@columbia.edu'
 URL =                'https://github.com/lebedov/duster/'
 DESCRIPTION =        'Reset IPython namespace and reload specified packages'
-LONG_DESCRIPTION =   DESCRIPTION
+with open('README.rst', 'r') as f:
+    LONG_DESCRIPTION = f.read()
+LONG_DESCRIPTION = re.search('.*(^Package Description.*)', LONG_DESCRIPTION, re.MULTILINE|re.DOTALL).group(1)
 DOWNLOAD_URL =       URL
 LICENSE =            'BSD'
 CLASSIFIERS = [
